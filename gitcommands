@@ -1,0 +1,87 @@
+1. git init
+This command is used to initialize empty git repository.
+
+2. git status
+This command is used to check the status of git whether is there any untracked files.
+
+3. git add .
+This command is used to add changes from all files to the staging area. 
+
+4. git add [File-Name]
+This command is used to add only the changes from the particular file to the staging area.
+
+5. git commit -m "commit message"
+This command is used to save the changes to our local repository.
+
+6. git restore --staged [File_Name].txt
+This command is used to unstage changes that have been added to the staging area.
+
+7. git log
+This command is used to display the commit history of a git repository.
+
+8. git reset [commit-id]
+This command is used to reset the current HEAD to the specified commit.
+
+9. git reset --hard [commit-id]
+It is a powerful command that resets the current branch and the staging area to the specified commit.
+
+10. git stash
+This command is used to temporarily store changes in the working directory.
+
+11. git stash pop
+This command is used to apply the most recently stashed changes and remove it from the stash list.
+
+12. git stash clear
+This command is used to remove all stashed changes from the stash list.
+
+13. git remote add origin [Repository-url]
+This command is used to add a new remote repository to our local Git repository. 
+
+14. git push origin [Branch-Name]
+This command is used to push the commits from a local branch to a remote repository.
+
+15. git push origin [branch-Name] -f
+This command is used to force push local commits to a remote branch.
+
+16. git branch [Branch-Name]
+This command is used to create a new branch in your Git repository with the specified name.
+
+17. git checkout [Branch-Name]
+This command is used to switch to a different branch in your Git repository.
+
+18. git checkout -b [Branch-Name]
+This command is a convenient shortcut in Git used to create a new branch and immediately switch to it in one step.
+
+19. git merge [Branch-name]
+This command is used to merge changes from one branch into another.
+
+20. git clone [Repository-url]
+This command is used to create a copy of a remote Git repository on our local machine.
+
+21. git fetch --all --prune
+This command is used to fetch all changes from all remote repositories and prune (remove) any remote tracking branches that no longer exist on the remote repositories.
+
+22. git pull
+This command is used to fetch and integrate changes from a remote repository into the current branch in our local repository.
+
+23. git rebase -i [Branch-Name]
+This command is used to perform an interactive rebase onto the specified branch. This command allows you to rewrite commit history by combining, editing, or removing commits interactively.
+
+24. git rebase --continue
+This command is used to continue the interactive rebase process after you have resolved conflicts or made changes to commits during an interactive rebase.
+
+25. git rebase --abort
+This command is used to abort an ongoing rebase operation and return the repository to its state before the rebase started.
+
+26. git log --oneline --graph --decorate --all
+Shows git log in a single line with all commit IDs
+
+27. git config --global user.name "username" , git config --global user.email "emailID"
+To add remote connections/set configuration variables
+
+28. git config --list
+To list the configuration variables
+
+29. git config --global alias.hist “log --oneline --graph --decorate --all"
+git hist – will show the log in single line
+This is used to set alias in Git.
