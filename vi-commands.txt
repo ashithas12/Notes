@@ -1,0 +1,12 @@
+ESC + SHIFT + A - end of the line
+ESC + SHIFT + G - end of the file
+ESC + gg - start of the file
+ESC + COLON + 4 - GOES TO THE FOURTH LINE
+ESC + COLON + SET NUMBER -> :set number - shows the line numbers on left side
+ESC + 4yy - copy 4 lines
+ESC + 4dd - delete 4 lines
+ESC + p - paste the copied lines
+ESC + o - inserts a line below
+ESC + O - inserts a line above
+ESC + :x - SAVE THE FILE
+ESC + u - UNDO A CHANGE
