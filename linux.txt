@@ -1,0 +1,70 @@
+Operating System: An OS is system software that manages computer hardware and software resources, and provides common services for computer programs.
+Types of OS :-
+1.	Desktop OS – Microsoft windows, macOS, linux such as ubuntu
+2.	Server OD – windows server, linux distributions like centOS, RHEL
+3.	Mobile OS – Android, iOS, Windows mobile
+4.	Embedded OS – Routers, smart TVs, automobiles, home appliances
+5.	Real-time OS(RTOS) – medical equipment, car ECUs, aerospace, defence, network firewalls, home security systems
+Linux Distributions
+1.	Ubuntu
+2.	Fedora
+3.	Debian
+4.	RHEL
+5.	CentOS
+6.	Arch Linux
+7.	openSUSE
+8.	linux mint
+9.	gentoo linux
+10.	slackware
+11.	alpine linux
+12.	kali linux
+
+Install Oracle Virtualbox to use linux systems - https://www.virtualbox.org/
+Filesystem – used by an OS to manage files. The system controls how data is saved or retrieved.
+/boot – contains file that is used by the boot loader
+/root – root user home directory
+/dev – system devices(eg. Disk,cdrom,speakers etc)
+/etc – configuration files
+/bin - /usr/bin – everyday user commands
+/sbin - /usr/sbin – system/filesystem commands
+/opt – optional add on applications(not part of OS apps)
+/proc – running processes(only exist in memory)
+/lib - /usr/lib – C programming lib files needed by commands and apps
+/tmp - directory for temporary files
+/hom – directory for user
+/var – system logs
+/run – system daemons that start very early to store temporary runtime files like PID files
+/mnt – to mount external filesystem
+/media – for cdrom mounts
+
+cd – change directory
+pwd – print working directory
+ls – list
+whoami
+ls -l
+cd ..
+su - -> become root user
+ls -lrt
+Type of files
+drwx-xr-x – directory
+lrwxrwxrwx – link
+-rw-w-r-- - file
+- ->regular file
+D -> directory
+l –> link
+c –> special file or device file
+p –> named pipe
+b –> block device
+change password – passwd
+
+FILE SYSTEM PATHS
+Absolute Path – begins with /– cd /var/log
+Relative Path – does not begin with /, identifies a location relative to your current position – cd /var , cd log
+
+Creating files
+touch filename -can create multiple files ( touch filename1 filename2)
+cp filename  filename1
+vi 
+creating directories
+mkdir foldername foldername1
+copy directory – cp -r sourcefolder destinationfolder
