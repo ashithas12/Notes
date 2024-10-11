@@ -68,3 +68,163 @@ vi
 creating directories
 mkdir foldername foldername1
 copy directory – cp -r sourcefolder destinationfolder
+
+sudo -i - root user
+mkdir ops devops
+touch devops{1..10}.txt -> creates 10 files
+copy directory - cp -r source destination
+move files/directories – mv ops /dev , mv *.txt textdir/
+mkdir testdir{1..5}
+mkdir -p /opt/ops/dev/devops/test
+cat /etc/os-release
+
+vi command mode –
+gg – to go to the beginning of the page
+G – to go to end of the page
+w – to move the cursor forward, word by word
+b - to move the cursor backward, word by word
+nw - to move the cursor forward to n words(5W)
+nb – to move the cursor backward to n words(5B)
+u – to undo last change(word)
+U – to undo the previous changes(entire line)
+Ctrl+R – to redo the changes
+yy – to copy a line
+nyy – to copy n lines(4yy)
+dd – cut the line
+ndd – delete n number of lines
+p – to paste line below the cursor position
+P – to paste line above the cursor position
+dw – to delete the word letter by letter(like backspace)
+x – to delete the word letter by letter(like del key)
+ESC+:se nu – shows numbers in the file(set numbers)
+/word – to search for a word in vi editor
+
+File Types
+ls -l – long listing
+ls -lt – sort according to time stamp
+ls -ltr – reverse the sort
+Hyphen(-) – regular file
+d – directory
+c – character file
+b – block file
+l – link (symbolic link file)
+ln -s dest source
+ctrl+d to exit / exit – same
+
+history
+to check the filetype – file <filepath>
+
+Filters
+grep word filename – searches word in file
+grep -i firewall filename – ignore case sensitivity
+grep -i word < filename -input redirection
+grep -i word * - searches in current working directory
+grep -iR word * - to search inside the sub directory as well
+grep -R word /etc/*
+grep -vi word filename – does not show anything related to word and shows the remaining, reverse search
+less filename – can search for words and quit using q, can use up and down arrows
+more filename – enter to read more
+head -2 filename – shows first two lines of the file
+tail -2 filename – last two lines of the file
+tail -f filename – shows dynamic content of the file
+/var/log – log files of the system
+cut -d: -f1 /etc/passwd – delimiter(d),Column1(f1) – prints column 1 
+if there is no delimiter we can use awk
+awk -F’:’ ‘{print $1}’ /etc/passwd – prints the first column
+Esc+:%s/word/replacementword – replaces all word with replacementword in a line
+Esc+:%s/word/replacementword/g – replace globally(g)
+Esc+:%s/word//g – replace with nothing
+sed ‘s/word/replacementword/g’ filename – will just print on screen will not make any changes to file
+sed -i ‘s/word/replacementword/g’ filename – will change the word in file
+
+Redirections
+Redirection is a process where we can copy the output of any command(s), file(s) into a new file. There are two ways of redirecting the output into a file using > or >> filename after the command.
+uptime > /tmp/sysinfo.txt
+ls > /tmp/sysinfo.txt – store the values present in current working directory
+uptime >> /tmp/sysinfo.txt – to append the content to previous values
+free -m – memory utilisation
+df -h – hard disk utilisation
+freeee -m 2>> /tmp/error.log – redirect error to log file, 2 is for standard error
+free -m 1>> /tmp/error.log – 1 is for standard output
+free -m &>> /tmp/error.log – redirect any output to file
+wc -l /etc/passwd – counts line numbers
+ls | wc -l – ls output goes as input to right hand side command – and prints the number of files
+ls | grep host – all file names that start with host
+tail -20 /var/log/messages | grep -i vagrant
+free -m | grep Mem
+ls -l | head – first ten files
+ls -l | tail – last ten files
+find /etc -name host*
+locate host
+
+Users & Groups
+To control access to files and resources
+id username – gives info about the user
+Users password is stored(encrypted) in /etc/shadow file.
+/etc/passwd
+/etc/group
+useradd jenkins
+groupadd devops
+usermod -aG devops jenkins – adding jenkins user to devops group
+passwd jenkins – can be done as root user , setting password
+lsof -u username – lists all files opened by the user
+userdel username – delete a user
+userdel -r username – delete along with home directory
+groupdel groupname
+Permissions
+User group others
+-rwxr-xr-x – read write execute permissions
+- -> filetype
+useradd
+groupadd
+chown -R ansible:devops /opt
+chmod o-r /opt - > remove read permission for others
+chmod g+r /opt -> add read permission for group
+u – user, g – group, o – others 
+4- read, 2-write, 1 -execute
+chmod 777 filename – full permissions
+
+Sudo
+sudo -i
+/etc/sudoers - Only user in /etc/sudoers file or /etc/sudoers.d dir can use sudo -i command to switch to root user
+
+Package management
+rpm -qa – list all rpm packages in the system
+arch / uname -m - to find arch of the system 
+curl link -o filename/outputfile(.rpm) / wget url– to download
+rpm -ivh filename(.rpm) – to install
+rpm -qa | grep telnet
+rpm -e filename(.rpm) – to remove the package
+yum install httpd/ dnf install httpd 
+dnf remove httpd
+dnf install httpd -y – installs without asking
+
+Services
+sudo systemctl start httpd
+sudo systemctl restart httpd
+reload/status/
+systemctl is-active httpd – to check the status
+systemctl is-enabled httpd – checks if the file is enabled
+
+Processes
+top – shows dynamic process based on cpu and ram, will get sorted based on cpu utilisation, q quit
+ps aux – similar to top command
+ps -ef | grep httpd | grep -v ‘grep’ – do not show grep and show the process running for httpd
+kill / kill -9 processid – to stop the process, -9 for forcefull
+ ps -ef | grep httpd | grep -v ‘grep’ | awk ‘{print $2}’ – awk prints the second column
+ps -ef | grep httpd | grep -v ‘grep’ | awk ‘{print $2}’ | xargs kill -9 – executes a particular command
+
+Archiving
+tar -czvf jenkins.tar.gz directoryname/path – create, compress, verbose, file – create a tar file
+tar -xzvf jenkins.tar.gz – extract the tar
+zip -r httpd.zip jenkins – archive a file
+unzip httpd.zip – unzip an archive
+
+UBUNTU COMMANDS – based on Debian architecture
+adduser devops
+export EDITOR=vim – normally used is nano but to make it vim use export
+dpkg -i filename.deb – install in ubuntu
+apt install apache2
+apt upgrade
+apt remove apache2
+apt purge apache – clean uninstall
