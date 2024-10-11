@@ -136,6 +136,7 @@ Esc+:%s/word/replacementword/g – replace globally(g)
 Esc+:%s/word//g – replace with nothing
 sed ‘s/word/replacementword/g’ filename – will just print on screen will not make any changes to file
 sed -i ‘s/word/replacementword/g’ filename – will change the word in file
+https://www.hostinger.in/tutorials/how-to-use-linux-sed-command-examples
 
 Redirections
 Redirection is a process where we can copy the output of any command(s), file(s) into a new file. There are two ways of redirecting the output into a file using > or >> filename after the command.
@@ -171,6 +172,7 @@ lsof -u username – lists all files opened by the user
 userdel username – delete a user
 userdel -r username – delete along with home directory
 groupdel groupname
+
 Permissions
 User group others
 -rwxr-xr-x – read write execute permissions
